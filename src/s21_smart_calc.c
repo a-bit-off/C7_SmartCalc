@@ -27,13 +27,20 @@ int s21_smart_calc(char *str, double *result) {
       s21_push(&operations, 0, s21_get_priority(oper), oper);
       i += end - &str[i];
     }
+    // if (s21_polish_notation_manager(&operations, &numbers, &str[i]) == 0) {
+    //   incorrect = 1;
+    //   break;
+    // }
+    if (i == strlen(str) - 1) {
+      str_end = 1;
+    }
+    s21_printf_stack("\nstack operations:", operations);
+    s21_printf_stack("stack numbers:", numbers);
+
     if (s21_polish_notation(&operations, &numbers, str_end) == 0) {
       incorrect = 1;
       break;
     }
-    // if (i == strlen(str) - 1) {
-    //   s21_polish_notation_manager(&str[i]);
-    // }
   }
   /*------------------------------------------------------------------*/
 
@@ -41,17 +48,17 @@ int s21_smart_calc(char *str, double *result) {
   // printf(
   //     "\n\n/*-----------------цикл по нисходящему "
   //     "приоритету-------------------*/\n\n\n");
-  str_end = 1;
-  while (operations && numbers && incorrect == 0) {
-    if (s21_polish_notation(&operations, &numbers, str_end) == 0) {
-      incorrect = 1;
-    }
-  }
+  // str_end = 1;
+  // while (operations && numbers && incorrect == 0) {
+  //   if (s21_polish_notation(&operations, &numbers, str_end) == 0) {
+  //     incorrect = 1;
+  //   }
+  // }
   /*------------------------------------------------------------------*/
 
   /*------------------------------вывод данных--------------------------*/
-  // s21_printf_stack("\n\nstack operations:", operations);
-  // s21_printf_stack("\nstack numbers:", numbers);
+  s21_printf_stack("\n\nstack operations:", operations);
+  s21_printf_stack("\nstack numbers:", numbers);
 
   if (incorrect == 0) {
     *result = numbers->value;

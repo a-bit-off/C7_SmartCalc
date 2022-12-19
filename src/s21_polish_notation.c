@@ -2,20 +2,49 @@
 
 int s21_polish_notation_manager(Stack **operations, Stack **numbers,
                                 char *str) {
-  // int s21_polish_notation_manager(char *str) {
   int flag = 1;
-  int strend = 0;
+  int str_end = 0;
+  int scobe = 0;
   // необходимо определить когда выталкивать оператор когда нет
   // НЕ выталкиваем когда:
   // закончился парсинг
   // встретили закрывающую скобку
 
-  // в остальных случаях выталкиваем
-  // когда нижний оператор имеет приоритет больше чем верхний
-  if (str[1] == '\0') {
-    strend = 1;
+  if ((*operations)) {
+    if (str[1] == '\0') {
+      str_end = 1;
+    } else if ((*operations)->type == RIGHTScobe_LEXEME) {
+      while ((*operations) && (*numbers)) {
+        if ((*operations)->type == RIGHTScobe_LEXEME &&
+            ((*operations)->next)->type == LEFTScobe_LEXEME) {
+          scobe = 1;
+          break;
+        }
+        if (s21_polish_notation(operations, numbers, 0) == 0) {
+          flag = 1;
+          break;
+        }
+      }
+      if (scobe == 1) {
+        s21_pop(operations);
+        s21_pop(operations);
+      } else {
+        flag = 0;  // error
+      }
+    }
+    if (str_end == 1) {
+      // s21_printf_stack("\n\nstack operations:", *operations);
+      // s21_printf_stack("\nstack numbers:", *numbers);
+      while ((*operations) && (*numbers)) {
+        if (s21_polish_notation(operations, numbers, str_end) == 0) {
+          flag = 1;
+          break;
+        }
+      }
+    }
+    // в остальных случаях выталкиваем
+    // когда нижний оператор имеет приоритет больше чем верхний
   }
-
   return flag;
 }
 
@@ -105,7 +134,7 @@ int s21_polish_notation(Stack **operations, Stack **numbers, int str_end) {
   }
 
   // обработка ошибок проверка на корректность -----> error
-  if ((*numbers) == NULL && (*operations) != NULL) {
+  if ((*numbers) == NULL && (*operations) != NULL && str_end == 1) {
     flag = 0;
   }
   // printf("\n");

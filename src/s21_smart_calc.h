@@ -42,8 +42,6 @@ void s21_remove_stack(Stack **head);
 void s21_pop(Stack **head);
 
 /*STACK*/
-
-// int s21_polish_notation_manager(char *str);
 int s21_polish_notation_manager(Stack **operations, Stack **numbers, char *str);
 
 int s21_polish_notation(Stack **operations, Stack **numbers, int str_end);

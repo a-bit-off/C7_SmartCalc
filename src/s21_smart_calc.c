@@ -9,7 +9,7 @@ int s21_smart_calc(char *str, double *result) {
   Stack *operations = NULL;  // + - * / x sin...
   size_t i = 0;              // счетчик для цикла
   char *end = NULL;  // возвращает последнее вхождение строки
-  int str_end = 0;  // конец парсинга - флаг для нисходящего цикла
+  // int str_end = 0;  // конец парсинга - флаг для нисходящего цикла
   int incorrect = 0;  // обработка неккоректного ввода, когда операторов больше
                       // чем переменных и тд и тп
 
@@ -27,20 +27,20 @@ int s21_smart_calc(char *str, double *result) {
       s21_push(&operations, 0, s21_get_priority(oper), oper);
       i += end - &str[i];
     }
-    // if (s21_polish_notation_manager(&operations, &numbers, &str[i]) == 0) {
-    //   incorrect = 1;
-    //   break;
+    // if (i == strlen(str) - 1) {
+    //   str_end = 1;
     // }
-    if (i == strlen(str) - 1) {
-      str_end = 1;
-    }
-    s21_printf_stack("\nstack operations:", operations);
-    s21_printf_stack("stack numbers:", numbers);
+    // s21_printf_stack("\nstack operations:", operations);
+    // s21_printf_stack("stack numbers:", numbers);
 
-    if (s21_polish_notation(&operations, &numbers, str_end) == 0) {
+    if (s21_polish_notation_manager(&operations, &numbers, &str[i]) == 0) {
       incorrect = 1;
       break;
     }
+    // if (s21_polish_notation(&operations, &numbers, str_end) == 0) {
+    //   incorrect = 1;
+    //   break;
+    // }
   }
   /*------------------------------------------------------------------*/
 
@@ -56,7 +56,9 @@ int s21_smart_calc(char *str, double *result) {
   // }
   /*------------------------------------------------------------------*/
 
-  /*------------------------------вывод данных--------------------------*/
+  printf(
+      "/*------------------------------вывод "
+      "данных--------------------------*/\n");
   s21_printf_stack("\n\nstack operations:", operations);
   s21_printf_stack("\nstack numbers:", numbers);
 

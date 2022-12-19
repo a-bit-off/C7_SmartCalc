@@ -13,7 +13,9 @@ int s21_get_priority(lexeme_enum oper) {
     num = 2;
   } else if (oper == POW_LEXEME || oper == MOD_LEXEME) {
     num = 3;
-  } else if (oper == LEFTScobe_LEXEME || RIGHTScobe_LEXEME) {
+  } else if (oper == LEFTScobe_LEXEME) {
+    num = -1;
+  } else if (oper == RIGHTScobe_LEXEME) {
     num = -1;
   } else {
     num = 4;

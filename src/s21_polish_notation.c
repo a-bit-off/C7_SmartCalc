@@ -4,10 +4,6 @@ int s21_polish_notation_manager(Stack **operations, Stack **numbers,
                                 char *str) {
   int flag = 1;
   int scobe = 0;
-  // необходимо определить когда выталкивать оператор когда нет
-  // НЕ выталкиваем когда:
-  // закончился парсинг
-  // встретили закрывающую скобку
 
   if ((*operations)) {
     if ((*operations)->type == RIGHTScobe_LEXEME) {
@@ -52,8 +48,6 @@ int s21_polish_notation_manager(Stack **operations, Stack **numbers,
       }
       printf("----------------- loop 1 end ----------------------\n");
     }
-    // в остальных случаях выталкиваем
-    // когда нижний оператор имеет приоритет больше чем верхний
   }
   return flag;
 }
@@ -106,18 +100,30 @@ int s21_polish_notation(Stack **operations, Stack **numbers, int str_end) {
         double num2 = (*numbers)->value;
         /*-----------------------------------*/
 
-        /*----------удаляем голову-----------*/
+        /*--если оператор использует два числа--*/
+        /*-------выталкиваем нижнее число–------*/
+        /*--иначе не выталкиваем нижнее число---*/
+        // if (s21_is_trigonometry(down_oper->type)) {
+
+        // }
         if ((*numbers)->next != NULL) {
           s21_pop(numbers);
         }
-        if (down_oper->type == MINUS_LEXEME) {
-          (*numbers)->value = num1 - num2;
-        } else if (down_oper->type == PLUS_LEXEME) {
+
+        if (down_oper->type == PLUS_LEXEME) {
           (*numbers)->value = num1 + num2;
-        } else if (down_oper->type == MUL_LEXEME) {
-          (*numbers)->value = num1 * num2;
+        } else if (down_oper->type == MINUS_LEXEME) {
+          (*numbers)->value = num1 - num2;
         } else if (down_oper->type == DIV_LEXEME) {
           (*numbers)->value = num1 / num2;
+        } else if (down_oper->type == MUL_LEXEME) {
+          (*numbers)->value = num1 * num2;
+        } else if (down_oper->type == POW_LEXEME) {
+          (*numbers)->value = pow(num1, num2);
+        } else if (down_oper->type == MOD_LEXEME) {
+          (*numbers)->value = fmod(num1, num2);
+        } else if (down_oper->type == COS_LEXEME) {
+          (*numbers)->value = cos(num1, num2);
         }
         /*-----------------------------------*/
       }

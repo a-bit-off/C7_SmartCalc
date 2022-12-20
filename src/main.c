@@ -5,8 +5,7 @@ int main() {
   double orig_res = 10;
   int my_return = 0;
 
-  char str[255] = "2+(5 * 5 * 5 + 5 + 2 * 2) / (1 + 1)";
-  // char str[255] = "7+(1*2*3+4+5*6)";
+  char str[255] = "2+(5 * 5 * 5 + 5 + 2 * 2) / (2)";
 
   my_return = s21_smart_calc(str, &my_res);
   printf("\n\nmy_return = %d, return_orig = %d\n", my_return, OK);

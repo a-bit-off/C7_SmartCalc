@@ -51,6 +51,19 @@ START_TEST(s21_test_3) {
 }
 END_TEST
 
+START_TEST(s21_test_4) {
+  double res = 0;
+  double orig = 136;
+  int error = 0;
+
+  char str[255] = "2+(5 * 5 * 5 + 5 + 2 * 2) / (2)";
+
+  error = s21_smart_calc(str, &res);
+  ck_assert_int_eq(error, OK);
+  ck_assert_double_eq(res, orig);
+}
+END_TEST
+
 Suite *suite_smart_calc(void) {
   Suite *s = suite_create("suite_smart_calc");
   TCase *tc = tcase_create("suite_smart_calc");

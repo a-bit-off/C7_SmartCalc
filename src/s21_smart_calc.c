@@ -9,12 +9,11 @@ int s21_smart_calc(char *str, double *result) {
   Stack *operations = NULL;  // + - * / x sin...
   size_t i = 0;              // счетчик для цикла
   char *end = NULL;  // возвращает последнее вхождение строки
-  // int str_end = 0;  // конец парсинга - флаг для нисходящего цикла
   int incorrect = 0;  // обработка неккоректного ввода, когда операторов больше
                       // чем переменных и тд и тп
 
   /*-------------------------- парсинг + -----------------------------*/
-  /*-----------------цикл по восходящему приоритету-------------------*/
+  /*----------------- цикл по обработке операторов -------------------*/
   while (i < strlen(str)) {
     double value = 0;
     lexeme_enum oper = DEFAULT;
@@ -27,34 +26,11 @@ int s21_smart_calc(char *str, double *result) {
       s21_push(&operations, 0, s21_get_priority(oper), oper);
       i += end - &str[i];
     }
-    // if (i == strlen(str) - 1) {
-    //   str_end = 1;
-    // }
-    // s21_printf_stack("\nstack operations:", operations);
-    // s21_printf_stack("stack numbers:", numbers);
-
     if (s21_polish_notation_manager(&operations, &numbers, &str[i]) == 0) {
       incorrect = 1;
       break;
     }
-    // if (s21_polish_notation(&operations, &numbers, str_end) == 0) {
-    //   incorrect = 1;
-    //   break;
-    // }
   }
-  /*------------------------------------------------------------------*/
-
-  /*-----------------цикл по нисходящему приоритету-------------------*/
-  // printf(
-  //     "\n\n/*-----------------цикл по нисходящему "
-  //     "приоритету-------------------*/\n\n\n");
-  // str_end = 1;
-  // while (operations && numbers && incorrect == 0) {
-  //   if (s21_polish_notation(&operations, &numbers, str_end) == 0) {
-  //     incorrect = 1;
-  //   }
-  // }
-  /*------------------------------------------------------------------*/
 
   printf(
       "/*------------------------------вывод "

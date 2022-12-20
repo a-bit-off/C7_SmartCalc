@@ -112,47 +112,16 @@ int s21_polish_notation(Stack **operations, Stack **numbers, int str_end,
             *error_calculation = 1;
           }
         }
+        /*----выполняем действие оператора----*/
         if (*error_calculation == 0) {
-          if (down_oper->type == PLUS_LEXEME) {
-            (*numbers)->value = num1 + num2;
-          } else if (down_oper->type == MINUS_LEXEME) {
-            (*numbers)->value = num1 - num2;
-          } else if (down_oper->type == DIV_LEXEME) {
-            if (num2 == 0) {
-              *error_calculation = 1;
-            } else {
-              (*numbers)->value = num1 / num2;
-            }
-          } else if (down_oper->type == MUL_LEXEME) {
-            (*numbers)->value = num1 * num2;
-          } else if (down_oper->type == POW_LEXEME) {
-            (*numbers)->value = pow(num1, num2);
-          } else if (down_oper->type == MOD_LEXEME) {
-            (*numbers)->value = fmod(num1, num2);
-          } else if (down_oper->type == COS_LEXEME) {
-            (*numbers)->value = cos(num2);
-          } else if (down_oper->type == SIN_LEXEME) {
-            (*numbers)->value = sin(num2);
-          } else if (down_oper->type == TAN_LEXEME) {
-            (*numbers)->value = tan(num2);
-          } else if (down_oper->type == ACOS_LEXEME) {
-            (*numbers)->value = acos(num2);
-          } else if (down_oper->type == ASIN_LEXEME) {
-            (*numbers)->value = asin(num2);
-          } else if (down_oper->type == ATAN_LEXEME) {
-            (*numbers)->value = atan(num2);
-          } else if (down_oper->type == SQRT_LEXEME) {
-            (*numbers)->value = sqrt(num2);
-          } else if (down_oper->type == LN_LEXEME) {
-            (*numbers)->value = log10(num2);
-          } else if (down_oper->type == LOG_LEXEME) {
-            (*numbers)->value = log(num2);
-          }
+          *error_calculation =
+              s21_operations_manager(num1, num2, down_oper, numbers);
         }
         /*-----------------------------------*/
       }
     }
     /*----------------------------------------------------*/
+
     /*----------------------cleaner-----------------------*/
     // удаляю первый из структуры
     // перезапысваю второй значениями текущего
@@ -168,12 +137,52 @@ int s21_polish_notation(Stack **operations, Stack **numbers, int str_end,
     s21_pop(&current_oper);
     /*----------------------------------------------------*/
   }
-
-  // обработка ошибок проверка на корректность -----> error
-
-  // printf("\n");
   return make_operations;
 }
 
-// 115 - 154
-// int s21_operations_manager() {}
+/// @brief Выполняте заданную операцию с числами, добавляет изменения в стек
+/// @param num1
+/// @param num2
+/// @param down_oper
+/// @param numbers
+/// @return 0 - все ок, 1 - ошибка калькуляции
+int s21_operations_manager(double num1, double num2, Stack *down_oper,
+                           Stack **numbers) {
+  int error_calculation = 0;
+  if (down_oper->type == PLUS_LEXEME) {
+    (*numbers)->value = num1 + num2;
+  } else if (down_oper->type == MINUS_LEXEME) {
+    (*numbers)->value = num1 - num2;
+  } else if (down_oper->type == DIV_LEXEME) {
+    if (num2 == 0) {
+      error_calculation = 1;
+    } else {
+      (*numbers)->value = num1 / num2;
+    }
+  } else if (down_oper->type == MUL_LEXEME) {
+    (*numbers)->value = num1 * num2;
+  } else if (down_oper->type == POW_LEXEME) {
+    (*numbers)->value = pow(num1, num2);
+  } else if (down_oper->type == MOD_LEXEME) {
+    (*numbers)->value = fmod(num1, num2);
+  } else if (down_oper->type == COS_LEXEME) {
+    (*numbers)->value = cos(num2);
+  } else if (down_oper->type == SIN_LEXEME) {
+    (*numbers)->value = sin(num2);
+  } else if (down_oper->type == TAN_LEXEME) {
+    (*numbers)->value = tan(num2);
+  } else if (down_oper->type == ACOS_LEXEME) {
+    (*numbers)->value = acos(num2);
+  } else if (down_oper->type == ASIN_LEXEME) {
+    (*numbers)->value = asin(num2);
+  } else if (down_oper->type == ATAN_LEXEME) {
+    (*numbers)->value = atan(num2);
+  } else if (down_oper->type == SQRT_LEXEME) {
+    (*numbers)->value = sqrt(num2);
+  } else if (down_oper->type == LN_LEXEME) {
+    (*numbers)->value = log10(num2);
+  } else if (down_oper->type == LOG_LEXEME) {
+    (*numbers)->value = log(num2);
+  }
+  return error_calculation;
+}

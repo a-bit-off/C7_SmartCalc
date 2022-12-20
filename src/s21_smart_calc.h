@@ -50,6 +50,8 @@ int s21_polish_notation_manager(Stack **operations, Stack **numbers, char *str);
 int s21_polish_notation(Stack **operations, Stack **numbers, int str_end,
                         int *error_calculation);
 int s21_smart_calc(char *str, char *x_str, double *result);
+int s21_operations_manager(double num1, double num2, Stack *down_oper,
+                           Stack **numbers);
 /*MAIN*/
 
 /*HTLPER*/

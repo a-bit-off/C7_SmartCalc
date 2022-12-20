@@ -43,19 +43,24 @@ void s21_remove_stack(Stack **head);
 void s21_pop(Stack **head);
 
 /*STACK*/
+
+/*MAIN*/
 int s21_polish_notation_manager(Stack **operations, Stack **numbers, char *str);
 
-int s21_polish_notation(Stack **operations, Stack **numbers, int str_end);
-int s21_smart_calc(char *str, double *result);
+int s21_polish_notation(Stack **operations, Stack **numbers, int str_end,
+                        int *error_calculation);
+int s21_smart_calc(char *str, char *x_str, double *result);
+/*MAIN*/
 
 /*HTLPER*/
 int s21_is_digit(char c);
 int s21_is_space(char c);
-int s21_string_to_double(char *str, char **end, double *numbur);
+int s21_string_to_double(char *str, char **end, double *number, double x);
 int s21_skip_space(char *str, char **end);
 int s21_is_operations(char *str, char **end, lexeme_enum *type);
 int s21_get_priority(lexeme_enum oper);
 int s21_get_scobe(Stack *operations);
+int s21_is_operation_singl_num(lexeme_enum type);
 /*HTLPER*/
 
 /*ANOTHER*/

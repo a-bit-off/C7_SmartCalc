@@ -59,35 +59,40 @@ int s21_skip_space(char *str, char **end) {
 /// @param end Указатель на последнее вхождение
 /// @param numbur Число
 /// @return 1 - ok 0 - error
-int s21_string_to_double(char *str, char **end, double *number) {
+int s21_string_to_double(char *str, char **end, double *number, double x) {
   int flag = 1;
   double num = 0;
   int dot = 0;
   size_t i = 0;
-  if (s21_is_digit(str[i]) == 0) {
-    if (str[i] == '.') {
-      if (s21_is_digit(str[i + 1]) == 0) {
+  if (str[i] == 'x') {
+    *number = x;
+    i++;
+  } else {
+    if (s21_is_digit(str[i]) == 0) {
+      if (str[i] == '.') {
+        if (s21_is_digit(str[i + 1]) == 0) {
+          flag = 0;
+        }
+      } else {
         flag = 0;
       }
-    } else {
-      flag = 0;
     }
-  }
-  if (flag == 1) {
-    for (;; i++) {
-      if (s21_is_digit(str[i]) == 0) {
-        if (str[i] != '.') {
-          break;
+    if (flag == 1) {
+      for (;; i++) {
+        if (s21_is_digit(str[i]) == 0) {
+          if (str[i] != '.') {
+            break;
+          }
         }
-      }
-      if (str[i] == '.') {
-        dot = 10;
-      }
-      if (dot == 0) {
-        num = (num * 10) + (double)(str[i] - '0');
-      } else if (str[i] != '.') {
-        num += (double)(str[i] - '0') / dot;
-        dot *= 10;
+        if (str[i] == '.') {
+          dot = 10;
+        }
+        if (dot == 0) {
+          num = (num * 10) + (double)(str[i] - '0');
+        } else if (str[i] != '.') {
+          num += (double)(str[i] - '0') / dot;
+          dot *= 10;
+        }
       }
     }
   }
@@ -192,10 +197,11 @@ int s21_is_operations(char *str, char **end, lexeme_enum *type) {
   if (*type != DEFAULT) {
     flag = 1;
   }
-  *end = (char *)&str[1];
+  *end = (char *)&str[i];
 
   return flag;
 }
+
 /// @brief Ищет скобки
 /// @param operations
 /// @return 0 - если не нашел скобки, 1 - если скобки расставлены в правильном
@@ -219,6 +225,17 @@ int s21_get_scobe(Stack *operations) {
     flag = 0;
   } else {
     flag = 2;
+  }
+  return flag;
+}
+
+/// @brief Находит оператор, которому нужно только одно число
+/// @param type
+/// @return 1 - если нашел, 0 - если нет
+int s21_is_operation_singl_num(lexeme_enum type) {
+  int flag = 0;
+  if (type >= 11 && type <= 19) {
+    flag = 1;
   }
   return flag;
 }

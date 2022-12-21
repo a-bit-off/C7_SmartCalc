@@ -25,8 +25,9 @@ private slots:
    void press_button();
    void press_AC();
    void press_equal();
-//   void on_result_label_returnPressed();
+   void on_result_label_returnPressed();
    void delete_symbol();
+   void press_graphics();
 
 private:
     Ui::MainWindow *ui;

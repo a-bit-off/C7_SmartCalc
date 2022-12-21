@@ -120,7 +120,7 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui->pushButton_sub, SIGNAL(clicked()), this, SLOT(press_button()));
     connect(ui->pushButton_mult, SIGNAL(clicked()), this, SLOT(press_button()));
     connect(ui->pushButton_divide, SIGNAL(clicked()), this, SLOT(press_button()));
-    connect(ui->pushButton_POW, SIGNAL(clicked()), this, SLOT(press_button()));
+    connect(ui->pushButton_exp, SIGNAL(clicked()), this, SLOT(press_button()));
     connect(ui->pushButton_X, SIGNAL(clicked()), this, SLOT(press_button()));
     connect(ui->pushButton_open_bracket, SIGNAL(clicked()), this, SLOT(press_button()));
     connect(ui->pushButton_close_bracket, SIGNAL(clicked()), this, SLOT(press_button()));
@@ -137,10 +137,10 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui->pushButton_AC, SIGNAL(clicked()), this, SLOT(press_AC()));
     connect(ui->pushButton_equal, SIGNAL(clicked()), this, SLOT(press_equal()));
 
-    connect(ui->pushButton_delete, SIGNAL(clicked()), this, SLOT(delete_symbol()));
+//    connect(ui->pushButton_delete, SIGNAL(clicked()), this, SLOT(delete_symbol()));
 
 
-//    connect(ui->pushButton_Graphics, SIGNAL(clicked()), this, SLOT(press_graphics()));
+    connect(ui->pushButton_Graphics, SIGNAL(clicked()), this, SLOT(press_graphics()));
 //    connect(ui->pushButton_credit, SIGNAL(clicked()), this, SLOT(press_credit()));
 //    connect(ui->pushButton_deposit, SIGNAL(clicked()), this, SLOT(press_deposit()));
 }
@@ -210,17 +210,17 @@ void MainWindow::press_equal()
     delete(value_of_x_str);
 }
 
-//void MainWindow::on_result_label_returnPressed()
-//{
-//    press_equal();
-//}
+void MainWindow::on_result_label_returnPressed()
+{
+    press_equal();
+}
 
-//void MainWindow::press_graphics()
-//{
-//    graphics_window->print_graph(ui->result_label->text());
-//    graphics_window->show();
-//    this->close();
-//}
+void MainWindow::press_graphics()
+{
+    graphics_window->print_graph(ui->result_label->text());
+    graphics_window->show();
+    this->close();
+}
 
 //void MainWindow::press_credit()
 //{

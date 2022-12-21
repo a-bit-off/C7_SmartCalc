@@ -1,4 +1,4 @@
-QT       += core gui
+QT       += core gui printsupport
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -13,14 +13,19 @@ SOURCES += \
     ../s21_polish_notation.c \
     ../s21_helpers.c \
     ../s21_stack.c \
+    graphics.cpp \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    qcustomplot.cpp
 
 HEADERS += \
     ../s21_smart_calc_v1.0.h \
-    mainwindow.h
+    graphics.h \
+    mainwindow.h \
+    qcustomplot.h
 
 FORMS += \
+    graphics.ui \
     mainwindow.ui
 
 # Default rules for deployment.

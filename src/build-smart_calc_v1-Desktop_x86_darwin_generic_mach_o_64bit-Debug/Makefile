@@ -52,9 +52,17 @@ OBJECTS_DIR   = ./
 
 ####### Files
 
-SOURCES       = ../smart_calc_v1/main.cpp \
+SOURCES       = ../s21_smart_calc_v1.0.c \
+		../s21_polish_notation.c \
+		../s21_helpers.c \
+		../s21_stack.c \
+		../smart_calc_v1/main.cpp \
 		../smart_calc_v1/mainwindow.cpp moc_mainwindow.cpp
-OBJECTS       = main.o \
+OBJECTS       = s21_smart_calc_v1.0.o \
+		s21_polish_notation.o \
+		s21_helpers.o \
+		s21_stack.o \
+		main.o \
 		mainwindow.o \
 		moc_mainwindow.o
 DIST          = /usr/local/share/qt/mkspecs/features/spec_pre.prf \
@@ -283,6 +291,7 @@ DIST          = /usr/local/share/qt/mkspecs/features/spec_pre.prf \
 		/usr/local/share/qt/mkspecs/features/qt_config.prf \
 		/usr/local/share/qt/mkspecs/macx-clang/qmake.conf \
 		/usr/local/share/qt/mkspecs/features/spec_post.prf \
+		../smart_calc_v1/.qmake.stash \
 		/usr/local/share/qt/mkspecs/features/exclusive_builds.prf \
 		/usr/local/share/qt/mkspecs/features/mac/sdk.prf \
 		/usr/local/share/qt/mkspecs/features/toolchain.prf \
@@ -311,7 +320,12 @@ DIST          = /usr/local/share/qt/mkspecs/features/spec_pre.prf \
 		/usr/local/share/qt/mkspecs/features/exceptions.prf \
 		/usr/local/share/qt/mkspecs/features/yacc.prf \
 		/usr/local/share/qt/mkspecs/features/lex.prf \
-		../smart_calc_v1/smart_calc_v1.pro ../smart_calc_v1/mainwindow.h ../smart_calc_v1/main.cpp \
+		../smart_calc_v1/smart_calc_v1.pro ../s21_smart_calc_v1.0.h \
+		../smart_calc_v1/mainwindow.h ../s21_smart_calc_v1.0.c \
+		../s21_polish_notation.c \
+		../s21_helpers.c \
+		../s21_stack.c \
+		../smart_calc_v1/main.cpp \
 		../smart_calc_v1/mainwindow.cpp
 QMAKE_TARGET  = smart_calc_v1
 DESTDIR       = 
@@ -321,7 +335,7 @@ TARGET        = smart_calc_v1.app/Contents/MacOS/smart_calc_v1
 EXPORT_QMAKE_MAC_SDK = macosx
 EXPORT_QMAKE_MAC_SDK_VERSION = 12.1
 EXPORT_QMAKE_XCODE_DEVELOPER_PATH = /Applications/Xcode.app/Contents/Developer
-EXPORT__QMAKE_STASH_ = 
+EXPORT__QMAKE_STASH_ = /Users/hazzeasu/C7_SmartCalc_v1.0-0/src/build-smart_calc_v1-Desktop_x86_darwin_generic_mach_o_64bit-Debug/.qmake.stash
 EXPORT_VALID_ARCHS = x86_64
 EXPORT_DEFAULT_ARCHS = x86_64
 EXPORT_ARCHS = $(filter $(EXPORT_VALID_ARCHS), $(if $(ARCHS), $(ARCHS), $(if $(EXPORT_DEFAULT_ARCHS), $(EXPORT_DEFAULT_ARCHS), $(EXPORT_VALID_ARCHS))))
@@ -563,6 +577,7 @@ Makefile: ../smart_calc_v1/smart_calc_v1.pro /usr/local/share/qt/mkspecs/macx-cl
 		/usr/local/share/qt/mkspecs/features/qt_config.prf \
 		/usr/local/share/qt/mkspecs/macx-clang/qmake.conf \
 		/usr/local/share/qt/mkspecs/features/spec_post.prf \
+		.qmake.stash \
 		/usr/local/share/qt/mkspecs/features/exclusive_builds.prf \
 		/usr/local/share/qt/mkspecs/features/mac/sdk.prf \
 		/usr/local/share/qt/mkspecs/features/toolchain.prf \
@@ -822,6 +837,7 @@ Makefile: ../smart_calc_v1/smart_calc_v1.pro /usr/local/share/qt/mkspecs/macx-cl
 /usr/local/share/qt/mkspecs/features/qt_config.prf:
 /usr/local/share/qt/mkspecs/macx-clang/qmake.conf:
 /usr/local/share/qt/mkspecs/features/spec_post.prf:
+.qmake.stash:
 /usr/local/share/qt/mkspecs/features/exclusive_builds.prf:
 /usr/local/share/qt/mkspecs/features/mac/sdk.prf:
 /usr/local/share/qt/mkspecs/features/toolchain.prf:
@@ -884,8 +900,8 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents /usr/local/share/qt/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../smart_calc_v1/mainwindow.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../smart_calc_v1/main.cpp ../smart_calc_v1/mainwindow.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../s21_smart_calc_v1.0.h ../smart_calc_v1/mainwindow.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../s21_smart_calc_v1.0.c ../s21_polish_notation.c ../s21_helpers.c ../s21_stack.c ../smart_calc_v1/main.cpp ../smart_calc_v1/mainwindow.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents ../smart_calc_v1/mainwindow.ui $(DISTDIR)/
 
 
@@ -896,6 +912,7 @@ clean: compiler_clean
 
 distclean: clean 
 	-$(DEL_FILE) -r smart_calc_v1.app
+	-$(DEL_FILE) .qmake.stash
 	-$(DEL_FILE) Makefile
 
 
@@ -953,11 +970,25 @@ compiler_clean: compiler_moc_predefs_clean compiler_moc_header_clean compiler_ui
 
 ####### Compile
 
+s21_smart_calc_v1.0.o: ../s21_smart_calc_v1.0.c ../s21_smart_calc_v1.0.h
+	$(CC) -c $(CFLAGS) $(INCPATH) -o s21_smart_calc_v1.0.o ../s21_smart_calc_v1.0.c
+
+s21_polish_notation.o: ../s21_polish_notation.c ../s21_smart_calc_v1.0.h
+	$(CC) -c $(CFLAGS) $(INCPATH) -o s21_polish_notation.o ../s21_polish_notation.c
+
+s21_helpers.o: ../s21_helpers.c ../s21_smart_calc_v1.0.h
+	$(CC) -c $(CFLAGS) $(INCPATH) -o s21_helpers.o ../s21_helpers.c
+
+s21_stack.o: ../s21_stack.c ../s21_smart_calc_v1.0.h
+	$(CC) -c $(CFLAGS) $(INCPATH) -o s21_stack.o ../s21_stack.c
+
 main.o: ../smart_calc_v1/main.cpp ../smart_calc_v1/mainwindow.h \
 		/usr/local/lib/QtWidgets.framework/Headers/QMainWindow \
 		/usr/local/lib/QtWidgets.framework/Headers/qmainwindow.h \
 		/usr/local/lib/QtWidgets.framework/Headers/QApplication \
-		/usr/local/lib/QtWidgets.framework/Headers/qapplication.h
+		/usr/local/lib/QtWidgets.framework/Headers/qapplication.h \
+		/usr/local/lib/QtWidgets.framework/Headers/QLabel \
+		/usr/local/lib/QtWidgets.framework/Headers/qlabel.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../smart_calc_v1/main.cpp
 
 mainwindow.o: ../smart_calc_v1/mainwindow.cpp ../smart_calc_v1/mainwindow.h \

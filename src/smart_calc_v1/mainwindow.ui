@@ -591,6 +591,9 @@
          <verstretch>0</verstretch>
         </sizepolicy>
        </property>
+       <property name="styleSheet">
+        <string notr="true"/>
+       </property>
        <property name="text">
         <string>7</string>
        </property>
@@ -666,20 +669,34 @@
      <rect>
       <x>15</x>
       <y>11</y>
-      <width>461</width>
+      <width>281</width>
       <height>40</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">QLabel {
-	qproperty-alignment: 'AlignVCenter | AlignLeft';
-	border-bottom: 1px solid gray;
-}
-
-background-color : white;</string>
+     <string notr="true">background-color : rgba(99, 99, 99, 0.1);
+</string>
     </property>
     <property name="text">
      <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="x_show">
+    <property name="geometry">
+     <rect>
+      <x>303</x>
+      <y>40</y>
+      <width>111</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">
+
+background-color : rgba(98, 99, 99, 0.1);</string>
+    </property>
+    <property name="text">
+     <string>  x = </string>
     </property>
    </widget>
   </widget>

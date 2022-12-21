@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include <string.h>
+#include "../s21_smart_calc_v1.0.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -17,8 +18,9 @@ public:
     ~MainWindow();
 
 private slots:
-    void add_symbols();
-    void eqal();
+    void add_symbols(int flag);
+    void x_flag(int *flag);
+    void equal();
     void ac();
     void delete_symbol();
 private:

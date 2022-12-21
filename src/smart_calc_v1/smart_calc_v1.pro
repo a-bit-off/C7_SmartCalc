@@ -9,10 +9,15 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    ../s21_smart_calc_v1.0.c \
+    ../s21_polish_notation.c \
+    ../s21_helpers.c \
+    ../s21_stack.c \
     main.cpp \
     mainwindow.cpp
 
 HEADERS += \
+    ../s21_smart_calc_v1.0.h \
     mainwindow.h
 
 FORMS += \

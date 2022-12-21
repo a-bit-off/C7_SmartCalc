@@ -1,4 +1,4 @@
-#include "s21_smart_calc.h"
+#include "s21_smart_calc_v1.0.h"
 /// @brief Добавление в стек
 /// @param head
 /// @param value переменная структуры

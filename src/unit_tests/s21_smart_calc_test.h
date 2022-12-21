@@ -3,7 +3,7 @@
 #include <check.h>
 #include <unistd.h>
 
-#include "../s21_smart_calc.h"
+#include "../s21_smart_calc_v1.0.h"
 Suite *suite_smart_calc(void);
 
 void run_test(void);

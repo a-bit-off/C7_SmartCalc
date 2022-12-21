@@ -58,6 +58,7 @@ public:
     QPushButton *pushButton__9;
     QPushButton *pushButton__div;
     QLabel *result_show;
+    QLabel *x_show;
 
     void setupUi(QMainWindow *MainWindow)
     {
@@ -336,6 +337,7 @@ public:
         pushButton__7->setObjectName(QString::fromUtf8("pushButton__7"));
         sizePolicy.setHeightForWidth(pushButton__7->sizePolicy().hasHeightForWidth());
         pushButton__7->setSizePolicy(sizePolicy);
+        pushButton__7->setStyleSheet(QString::fromUtf8(""));
         pushButton__7->setAutoRepeatDelay(300);
         pushButton__7->setAutoRepeatInterval(100);
 
@@ -370,13 +372,15 @@ public:
 
         result_show = new QLabel(centralwidget);
         result_show->setObjectName(QString::fromUtf8("result_show"));
-        result_show->setGeometry(QRect(15, 11, 461, 40));
-        result_show->setStyleSheet(QString::fromUtf8("QLabel {\n"
-"	qproperty-alignment: 'AlignVCenter | AlignLeft';\n"
-"	border-bottom: 1px solid gray;\n"
-"}\n"
+        result_show->setGeometry(QRect(15, 11, 281, 40));
+        result_show->setStyleSheet(QString::fromUtf8("background-color : rgba(99, 99, 99, 0.1);\n"
+""));
+        x_show = new QLabel(centralwidget);
+        x_show->setObjectName(QString::fromUtf8("x_show"));
+        x_show->setGeometry(QRect(303, 40, 111, 21));
+        x_show->setStyleSheet(QString::fromUtf8("\n"
 "\n"
-"background-color : white;"));
+"background-color : rgba(98, 99, 99, 0.1);"));
         MainWindow->setCentralWidget(centralwidget);
 
         retranslateUi(MainWindow);
@@ -420,6 +424,7 @@ public:
         pushButton__9->setText(QCoreApplication::translate("MainWindow", "9", nullptr));
         pushButton__div->setText(QCoreApplication::translate("MainWindow", "/", nullptr));
         result_show->setText(QString());
+        x_show->setText(QCoreApplication::translate("MainWindow", "  x = ", nullptr));
     } // retranslateUi
 
 };

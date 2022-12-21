@@ -1,4 +1,4 @@
-#include "s21_smart_calc.h"
+#include "s21_smart_calc_v1.0.h"
 /// @brief Получаем приоритет из enum
 /// @param oper enum
 int s21_get_priority(lexeme_enum oper) {

@@ -30,23 +30,3 @@ void s21_remove_stack(Stack **head) {
     s21_pop(&(*head));
   }
 }
-
-/*
-int main() {
-  Stack *head = (Stack *)malloc(sizeof(Stack));
-  lexeme_enum type = PLUS_LEXEME;
-  push(&head, 1.6, 1, type);
-  type = MUL_LEXEME;
-  push(&head, 4, 2, type);
-
-  printf("head.value = %lf, head.operation = %d\n\n", head->value,
-         head->operation);
-  pop(&head);
-  printf("head.value = %lf,  head.operation = %d\n\n", head->value,
-         head->operation);
-
-  remove_stack(&head);
-
-  return 0;
-}
-*/

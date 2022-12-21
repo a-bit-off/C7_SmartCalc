@@ -17,6 +17,10 @@ int s21_smart_calc(char *str, char *x_str, double *result) {
 
   /*-------------------------- парсинг + -----------------------------*/
   /*----------------- цикл по обработке операторов -------------------*/
+
+  if (str[0] == '-' || str[0] == '+') {
+    s21_push(&numbers, 0, DIG_LEXEME, 0);  //запуш нолек если унарный минус
+  }
   while (i < strlen(str)) {
     double value = 0;
     lexeme_enum oper = DEFAULT;
@@ -26,22 +30,19 @@ int s21_smart_calc(char *str, char *x_str, double *result) {
       s21_push(&numbers, value, 0, 0);
       i += end - &str[i];
     } else if (s21_is_operations(&str[i], &end, &oper)) {
-      s21_push(&operations, 0, s21_get_priority(oper), oper);
       i += end - &str[i];
+      /*---------обработка унарки--------*/
+      if (i > 1 && str[i - 2] == '(' &&
+          (oper == MINUS_LEXEME || oper == PLUS_LEXEME)) {
+        s21_push(&numbers, 0, 0, 0);
+      }
+      s21_push(&operations, 0, s21_get_priority(oper), oper);
     }
     if (s21_polish_notation_manager(&operations, &numbers, &str[i]) == 0) {
       incorrect = 1;
       break;
     }
   }
-  /*--------------------------вывод данных-----------------------------*/
-
-  printf(
-      "/*------------------------------вывод "
-      "данных--------------------------*/\n");
-  s21_printf_stack("\n\nstack operations:", operations);
-  s21_printf_stack("\nstack numbers:", numbers);
-
   if (incorrect == 0) {
     *result = numbers->value;
   }

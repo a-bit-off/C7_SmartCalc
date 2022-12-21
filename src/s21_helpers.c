@@ -23,22 +23,6 @@ int s21_get_priority(lexeme_enum oper) {
   return num;
 }
 
-/// @brief Вывод стека
-/// @param stack стек
-void s21_printf_stack(char *str, Stack *stack) {
-  Stack *stack_print = stack;
-  printf("%s\n", str);
-  while (stack_print) {
-    printf("%lf, %d, %d", stack_print->value, stack_print->priority,
-           (int)stack_print->type);
-    stack_print = stack_print->next;
-    if (stack_print) {
-      printf("\n");
-    }
-  }
-  printf("\n");
-}
-
 /// @brief Пропуск пробелов
 /// @param str Стартовая строка
 /// @param end Указатель на последнее вхождение
@@ -238,4 +222,20 @@ int s21_is_operation_singl_num(lexeme_enum type) {
     flag = 1;
   }
   return flag;
+}
+
+/// @brief Вывод стека
+/// @param stack стек
+void s21_printf_stack(char *str, Stack *stack) {
+  Stack *stack_print = stack;
+  printf("%s\n", str);
+  while (stack_print) {
+    printf("%lf, %d, %d", stack_print->value, stack_print->priority,
+           (int)stack_print->type);
+    stack_print = stack_print->next;
+    if (stack_print) {
+      printf("\n");
+    }
+  }
+  printf("\n");
 }

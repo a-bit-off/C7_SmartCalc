@@ -85,7 +85,6 @@ END_TEST
 
 START_TEST(s21_test_6) {
   double res = 0.0;
-
   char *str =
       "sin(cos(111))+tan(sqrt(222))-acos(asin(333))*atan(444)/ln(log(555))";
   char *value_of_x_str = "0.0";
@@ -136,6 +135,18 @@ START_TEST(s21_test_10) {
 }
 END_TEST
 
+START_TEST(s21_test_11) {
+  double res = 0;
+  double orig = 4;
+  char *str = "2 - (-2)";
+  char *value_of_x_str = "0";
+  int result = s21_smart_calc(str, value_of_x_str, &res);
+
+  ck_assert_int_eq(res, orig);
+  ck_assert_int_eq(result, 0);
+}
+END_TEST
+
 Suite *suite_smart_calc(void) {
   Suite *s = suite_create("suite_smart_calc");
   TCase *tc = tcase_create("suite_smart_calc");
@@ -152,6 +163,7 @@ Suite *suite_smart_calc(void) {
   tcase_add_test(tc, s21_test_8);
   tcase_add_test(tc, s21_test_9);
   tcase_add_test(tc, s21_test_10);
+  tcase_add_test(tc, s21_test_11);
 
   suite_add_tcase(s, tc);
   return s;

@@ -1,16 +1,20 @@
 #include "s21_smart_calc.h"
 
+/// @brief Свод условий
+/// @param operations
+/// @param numbers
+/// @param str
+/// @return 1 - ok, 0 - error
 int s21_polish_notation_manager(Stack **operations, Stack **numbers,
                                 char *str) {
   int flag = 1;
   int scobe = 0;
   int error_calculation = 0;
   if ((*operations)) {
+    /*-----проверка на наличие закрывающей скобки-----*/
+    /*--------------цикл до открывающий скобки--------*/
     if ((*operations)->type == RIGHTScobe_LEXEME) {
-      printf("----------------- loop 2 start ----------------------\n");
       while ((*operations) && (*numbers)) {
-        s21_printf_stack("\n\nstack operations:", (*operations));
-        s21_printf_stack("\nstack numbers:", (*numbers));
         if ((*operations)->type == RIGHTScobe_LEXEME &&
             ((*operations)->next)->type == LEFTScobe_LEXEME) {
           scobe = 1;
@@ -18,37 +22,27 @@ int s21_polish_notation_manager(Stack **operations, Stack **numbers,
         }
         if (s21_polish_notation(operations, numbers, 0, &error_calculation) ==
             0) {
-          flag = 1;
           break;
         }
       }
-      printf("----------------- loop 2 end ----------------------\n");
-
-      if (scobe == 1) {
+      if (scobe == 1 && error_calculation == 0) {
         s21_pop(operations);
         s21_pop(operations);
       } else {
-        error_calculation = 0;  // error
+        error_calculation = 1;
       }
     } else {
-      printf("----------------- just func start ----------------------\n");
-      s21_printf_stack("\n\nstack operations:", (*operations));
-      s21_printf_stack("\nstack numbers:", (*numbers));
+      /*------стандартный вызов (восходящий приоритет)------*/
       s21_polish_notation(operations, numbers, 0, &error_calculation);
-      printf("----------------- just func end ----------------------\n");
     }
-
-    if (str[0] == '\0') {
-      printf("----------------- loop 1 start ----------------------\n");
-      s21_printf_stack("\n\nstack operations:", (*operations));
-      s21_printf_stack("\nstack numbers:", (*numbers));
+    /*-----заключительный этап (цикл по низходящему приоритету)------*/
+    if (str[0] == '\0' && error_calculation == 0) {
       while ((*operations) != NULL && (*numbers) != NULL) {
         if (s21_polish_notation(operations, numbers, 1, &error_calculation) ==
             0) {
           break;
         }
       }
-      printf("----------------- loop 1 end ----------------------\n");
     }
   }
   if (error_calculation) {
@@ -74,15 +68,13 @@ int s21_polish_notation(Stack **operations, Stack **numbers, int str_end,
     } else if ((*operations)->next != NULL) {
       down_oper = (*operations)->next;
     }
-    /*-----------------------------------------------------*/
 
     /*-------------сохраняем текущий оператор--------------*/
     Stack *current_oper = NULL;
     s21_push(&current_oper, (*operations)->value, (*operations)->priority,
              (*operations)->type);
-    /*----------------------------------------------------*/
 
-    /*--------делаю все опреации со вторым стеком---------*/
+    /*---делаю все опреации со вторым стеком если опреатор сущеустует---*/
     if (down_oper) {
       /*--------------условия выполнения операции---------------*/
       if ((down_oper->priority >= current_oper->priority)) {
@@ -93,13 +85,12 @@ int s21_polish_notation(Stack **operations, Stack **numbers, int str_end,
       if (current_oper->type == LEFTScobe_LEXEME) {
         make_operations = 0;
       }
-      /*--------------------------------------------------------*/
-
+      /*------------------выполнение операций------------------*/
       if (make_operations == 1) {
         double num1 = 0;
         double num2 = 0;
         /* если оператор использует одно число, то нижнее не выталкиваем, если
-         * использует два числа то выталкиваем нижнее, если второго чисkа нет -
+         * использует два числа то выталкиваем нижнее, если второго числа нет -
          * ошибка калькуляции*/
         if (s21_is_operation_singl_num(down_oper->type)) {
           num2 = (*numbers)->value;
@@ -115,12 +106,13 @@ int s21_polish_notation(Stack **operations, Stack **numbers, int str_end,
         /*----выполняем действие оператора----*/
         if (*error_calculation == 0) {
           *error_calculation =
-              s21_operations_manager(num1, num2, down_oper, numbers);
+              s21_execution_operations(num1, num2, down_oper, numbers);
         }
-        /*-----------------------------------*/
+        if (*error_calculation == 1) {
+          make_operations = 0;
+        }
       }
     }
-    /*----------------------------------------------------*/
 
     /*----------------------cleaner-----------------------*/
     // удаляю первый из структуры
@@ -135,7 +127,6 @@ int s21_polish_notation(Stack **operations, Stack **numbers, int str_end,
       }
     }
     s21_pop(&current_oper);
-    /*----------------------------------------------------*/
   }
   return make_operations;
 }
@@ -146,8 +137,8 @@ int s21_polish_notation(Stack **operations, Stack **numbers, int str_end,
 /// @param down_oper
 /// @param numbers
 /// @return 0 - все ок, 1 - ошибка калькуляции
-int s21_operations_manager(double num1, double num2, Stack *down_oper,
-                           Stack **numbers) {
+int s21_execution_operations(double num1, double num2, Stack *down_oper,
+                             Stack **numbers) {
   int error_calculation = 0;
   if (down_oper->type == PLUS_LEXEME) {
     (*numbers)->value = num1 + num2;

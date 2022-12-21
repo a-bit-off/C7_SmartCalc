@@ -44,6 +44,9 @@ else
 endif
 	./unit_test
 
+leaks: test
+	leaks -atExit -- ./unit_test
+
 gcov_report: clean_test
 ifeq ($(OS), Darwin)
 	$(CC) $(STDFLAGS) $(GCOV_FLAGS) ${TEST_SRC} ${SRC} -o test $(LIBS)

@@ -9,6 +9,6 @@ int main(int argc, char *argv[])
     MainWindow w;
     w.show();
 
-    w.resize(420, 165);
+//    w.resize(420, 165);
     return a.exec();
 }

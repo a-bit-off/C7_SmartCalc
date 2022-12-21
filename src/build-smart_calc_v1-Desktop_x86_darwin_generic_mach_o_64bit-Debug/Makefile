@@ -943,6 +943,7 @@ compiler_moc_header_clean:
 moc_mainwindow.cpp: ../smart_calc_v1/mainwindow.h \
 		/usr/local/lib/QtWidgets.framework/Headers/QMainWindow \
 		/usr/local/lib/QtWidgets.framework/Headers/qmainwindow.h \
+		../s21_smart_calc_v1.0.h \
 		moc_predefs.h \
 		/usr/local/share/qt/libexec/moc
 	/usr/local/share/qt/libexec/moc $(DEFINES) --include /Users/hazzeasu/C7_SmartCalc_v1.0-0/src/build-smart_calc_v1-Desktop_x86_darwin_generic_mach_o_64bit-Debug/moc_predefs.h -I/usr/local/share/qt/mkspecs/macx-clang -I/Users/hazzeasu/C7_SmartCalc_v1.0-0/src/smart_calc_v1 -I/usr/local/lib/QtWidgets.framework/Headers -I/usr/local/lib/QtGui.framework/Headers -I/usr/local/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/13.0.0/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -F/usr/local/lib ../smart_calc_v1/mainwindow.h -o moc_mainwindow.cpp
@@ -985,6 +986,7 @@ s21_stack.o: ../s21_stack.c ../s21_smart_calc_v1.0.h
 main.o: ../smart_calc_v1/main.cpp ../smart_calc_v1/mainwindow.h \
 		/usr/local/lib/QtWidgets.framework/Headers/QMainWindow \
 		/usr/local/lib/QtWidgets.framework/Headers/qmainwindow.h \
+		../s21_smart_calc_v1.0.h \
 		/usr/local/lib/QtWidgets.framework/Headers/QApplication \
 		/usr/local/lib/QtWidgets.framework/Headers/qapplication.h \
 		/usr/local/lib/QtWidgets.framework/Headers/QLabel \
@@ -994,7 +996,10 @@ main.o: ../smart_calc_v1/main.cpp ../smart_calc_v1/mainwindow.h \
 mainwindow.o: ../smart_calc_v1/mainwindow.cpp ../smart_calc_v1/mainwindow.h \
 		/usr/local/lib/QtWidgets.framework/Headers/QMainWindow \
 		/usr/local/lib/QtWidgets.framework/Headers/qmainwindow.h \
-		ui_mainwindow.h
+		../s21_smart_calc_v1.0.h \
+		ui_mainwindow.h \
+		/usr/local/lib/QtWidgets.framework/Headers/QMessageBox \
+		/usr/local/lib/QtWidgets.framework/Headers/qmessagebox.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o ../smart_calc_v1/mainwindow.cpp
 
 moc_mainwindow.o: moc_mainwindow.cpp 

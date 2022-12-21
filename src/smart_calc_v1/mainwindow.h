@@ -2,8 +2,12 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-#include <string.h>
+#include "ui_mainwindow.h"
+#include <QMessageBox>
+
+extern "C" {
 #include "../s21_smart_calc_v1.0.h"
+}
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -18,11 +22,12 @@ public:
     ~MainWindow();
 
 private slots:
-    void add_symbols(int flag);
-    void x_flag(int *flag);
-    void equal();
-    void ac();
-    void delete_symbol();
+   void press_button();
+   void press_AC();
+   void press_equal();
+//   void on_result_label_returnPressed();
+   void delete_symbol();
+
 private:
     Ui::MainWindow *ui;
 

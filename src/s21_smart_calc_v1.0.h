@@ -49,7 +49,7 @@ int s21_polish_notation_manager(Stack **operations, Stack **numbers, char *str);
 
 int s21_polish_notation(Stack **operations, Stack **numbers, int str_end,
                         int *error_calculation);
-int s21_smart_calc(char *str, char *x_str, double *result);
+int s21_smart_calc(char *str, double x, double *result);
 int s21_execution_operations(double num1, double num2, Stack *down_oper,
                              Stack **numbers);
 /*MAIN*/
@@ -63,6 +63,7 @@ int s21_is_operations(char *str, char **end, lexeme_enum *type);
 int s21_get_priority(lexeme_enum oper);
 int s21_get_scobe(Stack *operations);
 int s21_is_operation_singl_num(lexeme_enum type);
+int s21_validator(char *str);
 /*HTLPER*/
 
 /*ANOTHER*/

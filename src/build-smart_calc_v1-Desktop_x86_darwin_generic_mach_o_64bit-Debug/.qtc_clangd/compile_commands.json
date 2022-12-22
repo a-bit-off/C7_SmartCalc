@@ -24,6 +24,7 @@
         "-m64",
         "--target=x86_64-apple-darwin20.6.0",
         "-DQ_CREATOR_RUN",
+        "-DQT_DISABLE_DEPRECATED_BEFORE=0x060000",
         "-DQT_QML_DEBUG",
         "-DQT_PRINTSUPPORT_LIB",
         "-DQT_WIDGETS_LIB",
@@ -69,10 +70,10 @@
         "-Wno-unknown-pragmas",
         "-Wno-unknown-warning-option",
         "-Wno-documentation-unknown-command",
-        "/Users/hazzeasu/C7_SmartCalc_v1.0-0/src/smart_calc_v1/graphics.cpp"
+        "/Users/hazzeasu/C7_SmartCalc_v1.0-0/src/smart_calc_v1/graphwindow.cpp"
     ],
     "directory": "/Users/hazzeasu/C7_SmartCalc_v1.0-0/src/build-smart_calc_v1-Desktop_x86_darwin_generic_mach_o_64bit-Debug/.qtc_clangd",
-    "file": "/Users/hazzeasu/C7_SmartCalc_v1.0-0/src/smart_calc_v1/graphics.cpp"
+    "file": "/Users/hazzeasu/C7_SmartCalc_v1.0-0/src/smart_calc_v1/graphwindow.cpp"
 },
 {
     "arguments": [
@@ -99,6 +100,7 @@
         "-m64",
         "--target=x86_64-apple-darwin20.6.0",
         "-DQ_CREATOR_RUN",
+        "-DQT_DISABLE_DEPRECATED_BEFORE=0x060000",
         "-DQT_QML_DEBUG",
         "-DQT_PRINTSUPPORT_LIB",
         "-DQT_WIDGETS_LIB",
@@ -174,6 +176,7 @@
         "-m64",
         "--target=x86_64-apple-darwin20.6.0",
         "-DQ_CREATOR_RUN",
+        "-DQT_DISABLE_DEPRECATED_BEFORE=0x060000",
         "-DQT_QML_DEBUG",
         "-DQT_PRINTSUPPORT_LIB",
         "-DQT_WIDGETS_LIB",
@@ -249,6 +252,7 @@
         "-m64",
         "--target=x86_64-apple-darwin20.6.0",
         "-DQ_CREATOR_RUN",
+        "-DQT_DISABLE_DEPRECATED_BEFORE=0x060000",
         "-DQT_QML_DEBUG",
         "-DQT_PRINTSUPPORT_LIB",
         "-DQT_WIDGETS_LIB",
@@ -324,6 +328,7 @@
         "-m64",
         "--target=x86_64-apple-darwin20.6.0",
         "-DQ_CREATOR_RUN",
+        "-DQT_DISABLE_DEPRECATED_BEFORE=0x060000",
         "-DQT_QML_DEBUG",
         "-DQT_PRINTSUPPORT_LIB",
         "-DQT_WIDGETS_LIB",
@@ -399,6 +404,7 @@
         "-m64",
         "--target=x86_64-apple-darwin20.6.0",
         "-DQ_CREATOR_RUN",
+        "-DQT_DISABLE_DEPRECATED_BEFORE=0x060000",
         "-DQT_QML_DEBUG",
         "-DQT_PRINTSUPPORT_LIB",
         "-DQT_WIDGETS_LIB",
@@ -444,10 +450,10 @@
         "-Wno-unknown-pragmas",
         "-Wno-unknown-warning-option",
         "-Wno-documentation-unknown-command",
-        "/Users/hazzeasu/C7_SmartCalc_v1.0-0/src/smart_calc_v1/graphics.h"
+        "/Users/hazzeasu/C7_SmartCalc_v1.0-0/src/smart_calc_v1/graphwindow.h"
     ],
     "directory": "/Users/hazzeasu/C7_SmartCalc_v1.0-0/src/build-smart_calc_v1-Desktop_x86_darwin_generic_mach_o_64bit-Debug/.qtc_clangd",
-    "file": "/Users/hazzeasu/C7_SmartCalc_v1.0-0/src/smart_calc_v1/graphics.h"
+    "file": "/Users/hazzeasu/C7_SmartCalc_v1.0-0/src/smart_calc_v1/graphwindow.h"
 },
 {
     "arguments": [
@@ -474,6 +480,7 @@
         "-m64",
         "--target=x86_64-apple-darwin20.6.0",
         "-DQ_CREATOR_RUN",
+        "-DQT_DISABLE_DEPRECATED_BEFORE=0x060000",
         "-DQT_QML_DEBUG",
         "-DQT_PRINTSUPPORT_LIB",
         "-DQT_WIDGETS_LIB",
@@ -549,6 +556,7 @@
         "-m64",
         "--target=x86_64-apple-darwin20.6.0",
         "-DQ_CREATOR_RUN",
+        "-DQT_DISABLE_DEPRECATED_BEFORE=0x060000",
         "-DQT_QML_DEBUG",
         "-DQT_PRINTSUPPORT_LIB",
         "-DQT_WIDGETS_LIB",
@@ -624,6 +632,7 @@
         "-m64",
         "--target=x86_64-apple-darwin20.6.0",
         "-DQ_CREATOR_RUN",
+        "-DQT_DISABLE_DEPRECATED_BEFORE=0x060000",
         "-DQT_QML_DEBUG",
         "-DQT_PRINTSUPPORT_LIB",
         "-DQT_WIDGETS_LIB",
@@ -669,10 +678,10 @@
         "-Wno-unknown-pragmas",
         "-Wno-unknown-warning-option",
         "-Wno-documentation-unknown-command",
-        "/Users/hazzeasu/C7_SmartCalc_v1.0-0/src/build-smart_calc_v1-Desktop_x86_darwin_generic_mach_o_64bit-Debug/ui_graphics.h"
+        "/Users/hazzeasu/C7_SmartCalc_v1.0-0/src/build-smart_calc_v1-Desktop_x86_darwin_generic_mach_o_64bit-Debug/ui_graphwindow.h"
     ],
     "directory": "/Users/hazzeasu/C7_SmartCalc_v1.0-0/src/build-smart_calc_v1-Desktop_x86_darwin_generic_mach_o_64bit-Debug/.qtc_clangd",
-    "file": "/Users/hazzeasu/C7_SmartCalc_v1.0-0/src/build-smart_calc_v1-Desktop_x86_darwin_generic_mach_o_64bit-Debug/ui_graphics.h"
+    "file": "/Users/hazzeasu/C7_SmartCalc_v1.0-0/src/build-smart_calc_v1-Desktop_x86_darwin_generic_mach_o_64bit-Debug/ui_graphwindow.h"
 },
 {
     "arguments": [
@@ -699,6 +708,7 @@
         "-m64",
         "--target=x86_64-apple-darwin20.6.0",
         "-DQ_CREATOR_RUN",
+        "-DQT_DISABLE_DEPRECATED_BEFORE=0x060000",
         "-DQT_QML_DEBUG",
         "-DQT_PRINTSUPPORT_LIB",
         "-DQT_WIDGETS_LIB",
@@ -772,6 +782,7 @@
         "--target=x86_64-apple-darwin20.6.0",
         "-std=gnu17",
         "-DQ_CREATOR_RUN",
+        "-DQT_DISABLE_DEPRECATED_BEFORE=0x060000",
         "-DQT_QML_DEBUG",
         "-DQT_PRINTSUPPORT_LIB",
         "-DQT_WIDGETS_LIB",
@@ -843,6 +854,7 @@
         "--target=x86_64-apple-darwin20.6.0",
         "-std=gnu17",
         "-DQ_CREATOR_RUN",
+        "-DQT_DISABLE_DEPRECATED_BEFORE=0x060000",
         "-DQT_QML_DEBUG",
         "-DQT_PRINTSUPPORT_LIB",
         "-DQT_WIDGETS_LIB",
@@ -914,6 +926,7 @@
         "--target=x86_64-apple-darwin20.6.0",
         "-std=gnu17",
         "-DQ_CREATOR_RUN",
+        "-DQT_DISABLE_DEPRECATED_BEFORE=0x060000",
         "-DQT_QML_DEBUG",
         "-DQT_PRINTSUPPORT_LIB",
         "-DQT_WIDGETS_LIB",
@@ -985,6 +998,7 @@
         "--target=x86_64-apple-darwin20.6.0",
         "-std=gnu17",
         "-DQ_CREATOR_RUN",
+        "-DQT_DISABLE_DEPRECATED_BEFORE=0x060000",
         "-DQT_QML_DEBUG",
         "-DQT_PRINTSUPPORT_LIB",
         "-DQT_WIDGETS_LIB",
@@ -1056,6 +1070,79 @@
         "--target=x86_64-apple-darwin20.6.0",
         "-std=gnu17",
         "-DQ_CREATOR_RUN",
+        "-DQT_DISABLE_DEPRECATED_BEFORE=0x060000",
+        "-DQT_QML_DEBUG",
+        "-DQT_PRINTSUPPORT_LIB",
+        "-DQT_WIDGETS_LIB",
+        "-DQT_GUI_LIB",
+        "-DQT_CORE_LIB",
+        "-I",
+        "/Users/hazzeasu/C7_SmartCalc_v1.0-0/src/smart_calc_v1",
+        "-I",
+        "/usr/local/lib/QtPrintSupport.framework/Headers",
+        "-I",
+        "/usr/local/lib/QtWidgets.framework/Headers",
+        "-I",
+        "/usr/local/lib/QtGui.framework/Headers",
+        "-I",
+        "/usr/local/lib/QtCore.framework/Headers",
+        "-I",
+        "/Users/hazzeasu/C7_SmartCalc_v1.0-0/src/build-smart_calc_v1-Desktop_x86_darwin_generic_mach_o_64bit-Debug",
+        "-I",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/System/Library/Frameworks/OpenGL.framework/Headers",
+        "-I",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/System/Library/Frameworks/AGL.framework/Headers",
+        "-I",
+        "/usr/local/share/qt/mkspecs/macx-clang",
+        "-F",
+        "/usr/local/lib",
+        "-F",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks",
+        "-isystem",
+        "/opt/goinfre/hazzeasu/Qt Creator.app/Contents/Resources/libexec/clang/lib/clang/14.0.0/include",
+        "-isystem",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include",
+        "-isystem",
+        "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include",
+        "-fmessage-length=0",
+        "-fdiagnostics-show-note-include-stack",
+        "-fretain-comments-from-system-headers",
+        "-fmacro-backtrace-limit=0",
+        "-ferror-limit=1000",
+        "-x",
+        "c",
+        "-Wno-unknown-pragmas",
+        "-Wno-unknown-warning-option",
+        "-Wno-documentation-unknown-command",
+        "/Users/hazzeasu/C7_SmartCalc_v1.0-0/src/s21_validator.c"
+    ],
+    "directory": "/Users/hazzeasu/C7_SmartCalc_v1.0-0/src/build-smart_calc_v1-Desktop_x86_darwin_generic_mach_o_64bit-Debug/.qtc_clangd",
+    "file": "/Users/hazzeasu/C7_SmartCalc_v1.0-0/src/s21_validator.c"
+},
+{
+    "arguments": [
+        "clang",
+        "-I",
+        "/opt/goinfre/hazzeasu/Qt Creator.app/Contents/Resources/cplusplus/wrappedQtHeaders",
+        "-I",
+        "/opt/goinfre/hazzeasu/Qt Creator.app/Contents/Resources/cplusplus/wrappedQtHeaders/QtCore",
+        "-I",
+        "/private/var/folders/zz/zyxvpxvq6csfxvn_n003wdgw00z3bz/T/QtCreator-SRjMPC/clang-uiheader-NacxMh",
+        "-nostdinc",
+        "-nostdinc++",
+        "-pipe",
+        "-g",
+        "-isysroot",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk",
+        "-mmacosx-version-min=11",
+        "-Wall",
+        "-Wextra",
+        "-fsyntax-only",
+        "-m64",
+        "--target=x86_64-apple-darwin20.6.0",
+        "-std=gnu17",
+        "-DQ_CREATOR_RUN",
+        "-DQT_DISABLE_DEPRECATED_BEFORE=0x060000",
         "-DQT_QML_DEBUG",
         "-DQT_PRINTSUPPORT_LIB",
         "-DQT_WIDGETS_LIB",
@@ -1127,6 +1214,7 @@
         "--target=x86_64-apple-darwin20.6.0",
         "-std=gnu17",
         "-DQ_CREATOR_RUN",
+        "-DQT_DISABLE_DEPRECATED_BEFORE=0x060000",
         "-DQT_QML_DEBUG",
         "-DQT_PRINTSUPPORT_LIB",
         "-DQT_WIDGETS_LIB",
@@ -1170,10 +1258,10 @@
         "-Wno-unknown-pragmas",
         "-Wno-unknown-warning-option",
         "-Wno-documentation-unknown-command",
-        "/Users/hazzeasu/C7_SmartCalc_v1.0-0/src/smart_calc_v1/graphics.h"
+        "/Users/hazzeasu/C7_SmartCalc_v1.0-0/src/smart_calc_v1/graphwindow.h"
     ],
     "directory": "/Users/hazzeasu/C7_SmartCalc_v1.0-0/src/build-smart_calc_v1-Desktop_x86_darwin_generic_mach_o_64bit-Debug/.qtc_clangd",
-    "file": "/Users/hazzeasu/C7_SmartCalc_v1.0-0/src/smart_calc_v1/graphics.h"
+    "file": "/Users/hazzeasu/C7_SmartCalc_v1.0-0/src/smart_calc_v1/graphwindow.h"
 },
 {
     "arguments": [
@@ -1198,6 +1286,7 @@
         "--target=x86_64-apple-darwin20.6.0",
         "-std=gnu17",
         "-DQ_CREATOR_RUN",
+        "-DQT_DISABLE_DEPRECATED_BEFORE=0x060000",
         "-DQT_QML_DEBUG",
         "-DQT_PRINTSUPPORT_LIB",
         "-DQT_WIDGETS_LIB",
@@ -1269,6 +1358,7 @@
         "--target=x86_64-apple-darwin20.6.0",
         "-std=gnu17",
         "-DQ_CREATOR_RUN",
+        "-DQT_DISABLE_DEPRECATED_BEFORE=0x060000",
         "-DQT_QML_DEBUG",
         "-DQT_PRINTSUPPORT_LIB",
         "-DQT_WIDGETS_LIB",
@@ -1340,6 +1430,7 @@
         "--target=x86_64-apple-darwin20.6.0",
         "-std=gnu17",
         "-DQ_CREATOR_RUN",
+        "-DQT_DISABLE_DEPRECATED_BEFORE=0x060000",
         "-DQT_QML_DEBUG",
         "-DQT_PRINTSUPPORT_LIB",
         "-DQT_WIDGETS_LIB",
@@ -1383,10 +1474,10 @@
         "-Wno-unknown-pragmas",
         "-Wno-unknown-warning-option",
         "-Wno-documentation-unknown-command",
-        "/Users/hazzeasu/C7_SmartCalc_v1.0-0/src/build-smart_calc_v1-Desktop_x86_darwin_generic_mach_o_64bit-Debug/ui_graphics.h"
+        "/Users/hazzeasu/C7_SmartCalc_v1.0-0/src/build-smart_calc_v1-Desktop_x86_darwin_generic_mach_o_64bit-Debug/ui_graphwindow.h"
     ],
     "directory": "/Users/hazzeasu/C7_SmartCalc_v1.0-0/src/build-smart_calc_v1-Desktop_x86_darwin_generic_mach_o_64bit-Debug/.qtc_clangd",
-    "file": "/Users/hazzeasu/C7_SmartCalc_v1.0-0/src/build-smart_calc_v1-Desktop_x86_darwin_generic_mach_o_64bit-Debug/ui_graphics.h"
+    "file": "/Users/hazzeasu/C7_SmartCalc_v1.0-0/src/build-smart_calc_v1-Desktop_x86_darwin_generic_mach_o_64bit-Debug/ui_graphwindow.h"
 },
 {
     "arguments": [
@@ -1411,6 +1502,7 @@
         "--target=x86_64-apple-darwin20.6.0",
         "-std=gnu17",
         "-DQ_CREATOR_RUN",
+        "-DQT_DISABLE_DEPRECATED_BEFORE=0x060000",
         "-DQT_QML_DEBUG",
         "-DQT_PRINTSUPPORT_LIB",
         "-DQT_WIDGETS_LIB",

@@ -6,26 +6,27 @@ CONFIG += c++17
 
 # You can make your code fail to compile if it uses deprecated APIs.
 # In order to do so, uncomment the following line.
-#DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
+DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
     ../s21_smart_calc_v1.0.c \
     ../s21_polish_notation.c \
     ../s21_helpers.c \
     ../s21_stack.c \
-    graphics.cpp \
+    ../s21_validator.c \
+    graphwindow.cpp \
     main.cpp \
     mainwindow.cpp \
     qcustomplot.cpp
 
 HEADERS += \
     ../s21_smart_calc_v1.0.h \
-    graphics.h \
+    graphwindow.h \
     mainwindow.h \
     qcustomplot.h
 
 FORMS += \
-    graphics.ui \
+    graphwindow.ui \
     mainwindow.ui
 
 # Default rules for deployment.

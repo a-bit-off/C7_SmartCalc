@@ -1,4 +1,6 @@
 
+#include "s21_smart_calc_v1.0.h"
+
 int s21_validator(char *str) {
   int res = 1, i = 0, scob = 0;
   while (i != (int)strlen(str)) {

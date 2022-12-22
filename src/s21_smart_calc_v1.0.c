@@ -4,16 +4,13 @@
 /// @param str Строка
 /// @param result Резульат операций
 /// @return 0 - ok,  1 - error
-int s21_smart_calc(char *str, char *x_str, double *result) {
+int s21_smart_calc(char *str, double x, double *result) {
   Stack *numbers = NULL;     // -10^6 ... 10^6
   Stack *operations = NULL;  // + - * / x sin...
   size_t i = 0;              // счетчик для цикла
   char *end = NULL;  // возвращает последнее вхождение строки
   int incorrect = 0;  // обработка неккоректного ввода, когда операторов больше
                       // чем переменных и тд и тп
-  double x = 0;  // переменная x в числовом эквеваленте
-  s21_string_to_double(x_str, &end, &x, 0);  // переводим x в double
-  end = NULL;                                // обратно зануляем
 
   /*-------------------------- парсинг + -----------------------------*/
   /*----------------- цикл по обработке операторов -------------------*/

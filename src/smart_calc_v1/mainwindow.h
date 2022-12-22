@@ -3,37 +3,39 @@
 
 #include <QMainWindow>
 #include <QMessageBox>
-#include "graphics.h"
-#include "ui_graphics.h"
 
+#include "graphwindow.h"
+#include "qcustomplot.h"
+#include "ui_graphwindow.h"
 
 extern "C" {
 #include "../s21_smart_calc_v1.0.h"
 }
 
-
 QT_BEGIN_NAMESPACE
-namespace Ui { class MainWindow; }
+namespace Ui {
+class MainWindow;
+}
 QT_END_NAMESPACE
 
-class MainWindow : public QMainWindow
-{
-    Q_OBJECT
+class MainWindow : public QMainWindow {
+  Q_OBJECT
 
-public:
-    MainWindow(QWidget *parent = nullptr);
-    ~MainWindow();
+ public:
+  MainWindow(QWidget *parent = nullptr);
+  ~MainWindow();
 
-private slots:
-    void press_button();
-    void press_AC();
-    void press_equal();
-    void on_result_label_returnPressed();
-    void press_graphics();
+ private slots:
+    void digit_numbers();
+    void on_pushButton_TOCHKA_clicked();
+    void on_pushButton_EQUAL_clicked();
+    void operations();
+    void functions();
+    void on_pushButton_DELETE_clicked();
+    void on_pushButton_X_clicked();
 
-private:
-    Ui::MainWindow *ui;
-    graphics *graphics_window;
-
+ private:
+  Ui::MainWindow *ui;
+  GraphWindow *window2;
 };
-#endif // MAINWINDOW_H
+#endif  // MAINWINDOW_H

@@ -1,6 +1,11 @@
 #include "graphwindow.h"
-#include "mainwindow.h"
 #include "ui_graphwindow.h"
+#include "qcustomplot.h"
+
+
+extern "C"{
+#include "../s21_smart_calc_v1.0.h"
+}
 
 GraphWindow::GraphWindow(QWidget* parent)
     : QDialog(parent), ui(new Ui::GraphWindow) {
@@ -17,9 +22,9 @@ void GraphWindow::on_to_draw_button_clicked(char* text) {
   double x_max_num = ui->d_f_2->text().toDouble();
   double range_x = ui->e_f_1->text().toDouble();
   double range_y = ui->e_f_2->text().toDouble();
-
   xBegin = x_min_num;
   xEnd = x_max_num;
+
 
   //    xBegin = 1;
   //    xEnd = 100;
@@ -35,6 +40,7 @@ void GraphWindow::on_to_draw_button_clicked(char* text) {
     x.push_back(X);
     double res = 0;
     s21_smart_calc(text, X, &res);
+
     y.push_back(res);
 
   }

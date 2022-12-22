@@ -3,7 +3,9 @@
 #include <QLabel>
 #include <QString>
 
-
+extern "C" {
+#include "../s21_smart_calc_v1.0.h"
+}
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -38,9 +40,11 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui->pushButton_LN, SIGNAL(clicked()), this, SLOT(functions()));
     connect(ui->pushButton_SQRT, SIGNAL(clicked()), this, SLOT(functions()));
     connect(ui->pushButton_LOG, SIGNAL(clicked()), this, SLOT(functions()));
-    connect(ui->pushButton_DELETE, SIGNAL(clicked()), this, SLOT(on_pushButton_DELETE_clicked()));
 
-//    connect(ui->pushButton_EQUAL, SIGNAL(clicked()), this, SLOT(on_pushButton_EQUAL_clicked()));
+    connect(ui->pushButton_DELETE, SIGNAL(clicked()), this, SLOT(delete_clicked()));
+    connect(ui->pushButton_EQUAL, SIGNAL(clicked()), this, SLOT(EQUAL_clicked()));
+    connect(ui->pushButton_X, SIGNAL(clicked()), this, SLOT(X_clicked()));
+    connect(ui->pushButton_TOCHKA, SIGNAL(clicked()), this, SLOT(TOCHKA_clicked()));
 
 }
 
@@ -60,14 +64,14 @@ void MainWindow::digit_numbers()
     ui->result_show->setText(new_label);
 }
 
-void MainWindow::on_pushButton_TOCHKA_clicked()
+void MainWindow::TOCHKA_clicked()
 {
     if (!(ui->result_show->text().endsWith('.')))
         ui->result_show->setText(ui->result_show->text() + ".");
 }
 
 
-void MainWindow::on_pushButton_EQUAL_clicked()
+void MainWindow::EQUAL_clicked()
 {
     char* str = new char(ui->result_show->text().length());
     QByteArray barr = ui->result_show->text().toLatin1();
@@ -131,13 +135,13 @@ void MainWindow::functions()
 
 
 
-void MainWindow::on_pushButton_DELETE_clicked()
+void MainWindow::delete_clicked()
 {
     ui->result_show->setText("");
 }
 
 
-void MainWindow::on_pushButton_X_clicked()
+void MainWindow::X_clicked()
 {
 
     QString new_label;

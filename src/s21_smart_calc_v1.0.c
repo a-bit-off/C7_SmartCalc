@@ -40,9 +40,9 @@ int s21_smart_calc(char *str, double x, double *result) {
       break;
     }
   }
-  if (incorrect == 0) {
-    *result = numbers->value;
-  }
+  // if (incorrect == 0) {
+  // }
+  *result = numbers->value;
   /*------------------------------cleaner-----------------------------*/
   s21_remove_stack(&numbers);
   s21_remove_stack(&operations);

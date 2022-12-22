@@ -8,9 +8,6 @@
 #include "qcustomplot.h"
 #include "ui_graphwindow.h"
 
-extern "C" {
-#include "../s21_smart_calc_v1.0.h"
-}
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -27,12 +24,12 @@ class MainWindow : public QMainWindow {
 
  private slots:
     void digit_numbers();
-    void on_pushButton_TOCHKA_clicked();
-    void on_pushButton_EQUAL_clicked();
+    void TOCHKA_clicked();
+    void EQUAL_clicked();
     void operations();
     void functions();
-    void on_pushButton_DELETE_clicked();
-    void on_pushButton_X_clicked();
+    void delete_clicked();
+    void X_clicked();
 
  private:
   Ui::MainWindow *ui;

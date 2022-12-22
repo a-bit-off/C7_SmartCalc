@@ -3,7 +3,7 @@
 /// @param oper enum
 int s21_get_priority(lexeme_enum oper) {
   int num = 0;
-  if (oper == smart_calc_DEFAULT) {
+  if (oper == DEFAULT) {
     num = -10;
   } else if (oper == X_LEXEME) {
     num = 0;
@@ -115,7 +115,7 @@ int s21_is_space(char c) {
 /// @return 1 - ok 0 - error
 int s21_is_operations(char *str, char **end, lexeme_enum *type) {
   int flag = 0;
-  *type = smart_calc_DEFAULT;
+  *type = DEFAULT;
   int i = 0;
 
   if (str[i] == 'x') {
@@ -178,7 +178,7 @@ int s21_is_operations(char *str, char **end, lexeme_enum *type) {
     i++;
   }
 
-  if (*type != smart_calc_DEFAULT) {
+  if (*type != DEFAULT) {
     flag = 1;
   }
   *end = (char *)&str[i];

@@ -9,7 +9,7 @@
 
 /*STACK*/
 typedef enum {
-  smart_calc_DEFAULT = 0,
+  DEFAULT = 0,
   DIG_LEXEME = 1,
   X_LEXEME = 2,
   PLUS_LEXEME = 3,

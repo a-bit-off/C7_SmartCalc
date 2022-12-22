@@ -23,7 +23,7 @@ int s21_smart_calc(char *str, char *x_str, double *result) {
   }
   while (i < strlen(str)) {
     double value = 0;
-    lexeme_enum oper = smart_calc_DEFAULT;
+    lexeme_enum oper = DEFAULT;
     if (s21_skip_space(&str[i], &end)) {
       i += end - &str[i];
     } else if (s21_string_to_double(&str[i], &end, &value, x)) {

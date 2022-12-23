@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 #include "s21_smart_calc_v1.0.h"
+=======
+#include "s21_stack.h"
+>>>>>>> hazzeasu
 /// @brief Добавление в стек
 /// @param head
 /// @param value переменная структуры
@@ -13,7 +17,11 @@ void s21_push(Stack **head, double value, int priority, lexeme_enum type) {
   (*head) = stack;
 }
 
+<<<<<<< HEAD
 /// @brief Удаление из стека
+=======
+/// @brief Удаление голвы из стека
+>>>>>>> hazzeasu
 /// @param head
 void s21_pop(Stack **head) {
   Stack *stack = (*head);

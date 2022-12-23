@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 CC=gcc
 STDFLAGS=-Wall -Werror -Wextra -std=c11 
 TST_CFLAGS:= -g $(STDFLAGS) -g
@@ -61,12 +62,43 @@ endif
 valgrind: $(TARGET)
 	$(CC) $(TST_CFLAGS) ${TEST_SRC} $< -o test $(LIBS) $(LINUX_FLAGS)
 	CK_FORK=no valgrind $(VALGRIND_FLAGS) --log-file=RESULT_VALGRIND.txt ./test
+=======
+CC = gcc
+CFLAG = -Wall -Wextra -Werror
+APP = build/s21_calc.app
+BACKEND_FILES = s21_stack.c s21_calculation.c;
+BACKEND_FILES_O = s21_stack.o s21_calculation.o
+
+all: install s21_calc.a tests
+build:
+	mkdir build
+	cd ./build/ && qmake ../ && make && mv calc.app s21_calc.app
+
+install: build
+	@mkdir $(HOME)/Desktop/SmartCalc_v1.0/
+	@cp -rf $(APP) $(HOME)/Desktop/SmartCalc_v1.0/
+	make clean
+
+uninstall:
+	@rm -rf $(HOME)/Desktop/SmartCalc_v1.0/
+
+dvi:
+	open dvi.html
+
+check: test
+	@cp -f ../materials/linters/CPPLINT.cfg CPPLINT.cfg
+	@python ../materials/linters/cpplint.py --extensions=c *.c
+	@python ../materials/linters/cpplint.py --extensions=h s21_smart_calc.h
+	@rm -rf CPPLINT.cfg
+	@CK_FORK=no leaks --atExit -- ./test2.o
+>>>>>>> hazzeasu
 
 clang:
 	cp ../materials/linters/.clang-format ../src/.clang-format; \
 	clang-format -style=Google -n *.c *.h; \
 	rm .clang-format
 
+<<<<<<< HEAD
 brew:
 	eval /opt/goinfre/$(USERNAME)/homebrew/bin/brew shellenv; \
 	brew update --force --quiet; \
@@ -99,3 +131,38 @@ clean: clean_lib clean_lib clean_test clean_obj
 	rm -rf RESULT_VALGRIND.txt
 
 .PHONY: all clean check lcov
+=======
+dist:
+	rm -rf Archive_SmartCalc_v1.0/
+	mkdir Archive_SmartCalc_v1.0/
+	mkdir Archive_SmartCalc_v1.0/src
+	cp Makefile *.c *.h *.pro *.cpp *.ui *.user Archive_SmartCalc_v1.0/src/
+	tar cvzf Archive_SmartCalc_v1.0.tgz Archive_SmartCalc_v1.0/
+	mv Archive_SmartCalc_v1.0.tgz $(HOME)/Desktop/
+	rm -rf Archive_SmartCalc_v1.0/
+
+s21_calc.a:
+	$(CC) $(CFLAG) -c $(BACKEND_FILES)
+	@ar rcs s21_calc.a $(BACKEND_FILES_O)
+
+test: s21_calc.a
+	$(CC) $(CFLAG) -c s21_test.c -o test1.o
+	$(CC) test1.o s21_calc.a -lcheck -o test2.o
+	./test2.o
+
+gcov_report:
+	$(CC) --coverage s21_test.c  -o s21_test -lcheck $(BACKEND_FILES)
+	./s21_test
+	lcov -t "s21_test" -o s21_test.info -c -d .
+	genhtml -o report s21_test.info
+	open ./report/index.html
+
+clean:
+	rm -rf *.o *.a
+	rm -rf *.gcda *.gcno *.info
+	rm -rf s21_test report
+	rm -rf s21_calc s21_test
+	rm -rf ./build*
+
+rebuild: clean all
+>>>>>>> hazzeasu

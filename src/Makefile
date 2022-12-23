@@ -20,11 +20,7 @@ uninstall:
 dvi:
 	open dvi.html
 
-check: test
-	@cp -f ../materials/linters/CPPLINT.cfg CPPLINT.cfg
-	@python ../materials/linters/cpplint.py --extensions=c *.c
-	@python ../materials/linters/cpplint.py --extensions=h s21_smart_calc.h
-	@rm -rf CPPLINT.cfg
+leaks: test
 	@CK_FORK=no leaks --atExit -- ./test2.o
 
 clang:

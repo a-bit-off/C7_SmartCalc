@@ -142,8 +142,17 @@ void MainWindow::on_pushButton_DELETE_SYMBOL_clicked() {
   int i = 1;
   int l = (int)strlen(str) - 1;
   if (str[l] == '(') {
-    if (str[l - 1] == 'g' && str[l - 2] == 'o' && str[l - 3] == 'l') {
+    if (str[l - 2] == 'l' && str[l - 1] == 'n') {
+      i += 2;
+    } else if ((str[l - 3] == 'l' && str[l - 2] == 'o' && str[l - 1] == 'g') ||
+               (str[l - 3] == 'm' && str[l - 2] == 'o' && str[l - 1] == 'd')) {
       i += 3;
+    } else if (((str[l - 3] == 's' && str[l - 2] == 'i' &&
+                 str[l - 1] == 'n')) ||
+               (str[l - 3] == 'c' && str[l - 2] == 'o' && str[l - 1] == 's') ||
+               (str[l - 3] == 't' && str[l - 2] == 'a' && str[l - 1] == 'n')) {
+      i += 3;
+      str[l - 4] == 'a' ? i += 1 : 0;
     }
   }
   while (i > 0) {

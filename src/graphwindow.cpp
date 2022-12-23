@@ -27,16 +27,10 @@ void GraphWindow::on_to_draw_button_clicked(char* text) {
   xBegin = x_min_num;
   xEnd = x_max_num;
 
-  //    xBegin = 1;
-  //    xEnd = 100;
-
   ui->widget->xAxis->setRange(-1 * range_x, range_x);
   ui->widget->yAxis->setRange(-1 * range_y, range_y);
-
   h = 0.1;
-
   N = (xEnd - xBegin) / h + 2;
-
   for (X = xBegin; X < xEnd; X += h) {
     x.push_back(X);
     y.push_back(s21_smart_calc(text, X));
@@ -44,10 +38,8 @@ void GraphWindow::on_to_draw_button_clicked(char* text) {
 
   ui->widget->addGraph();
   ui->widget->graph(0)->addData(x, y);
-
   ui->widget->setInteraction(QCP::iRangeZoom, true);
   ui->widget->setInteraction(QCP::iRangeDrag, true);
-
   ui->widget->replot();
 
   x.clear();

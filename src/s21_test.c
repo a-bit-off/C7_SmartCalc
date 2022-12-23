@@ -14,6 +14,13 @@ START_TEST(calc_test) {
     ck_assert_msg(fabs(result) - fabs(real_result) <= 0.00001, "test-1 failed");
   }
   {
+    char src[100] = " .5^2";
+    double x_text = 0;
+    double result = s21_smart_calc(src, x_text);
+    double real_result = -6.31492;
+    ck_assert_msg(fabs(result) - fabs(real_result) <= 0.00001, "test-1 failed");
+  }
+  {
     char src[100] = "x+x";
     double x_text = 2;
     double result = s21_smart_calc(src, x_text);

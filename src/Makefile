@@ -27,6 +27,10 @@ check: test
 	@rm -rf CPPLINT.cfg
 	@CK_FORK=no leaks --atExit -- ./test2.o
 
+clang:
+	cp ../materials/linters/.clang-format ../src/.clang-format; \
+	clang-format -style=Google -n *.c *.h; \
+	rm .clang-format
 
 dist:
 	rm -rf Archive_SmartCalc_v1.0/
@@ -41,7 +45,7 @@ s21_calc.a:
 	$(CC) $(CFLAG) -c $(BACKEND_FILES)
 	@ar rcs s21_calc.a $(BACKEND_FILES_O)
 
-tests: s21_calc.a
+test: s21_calc.a
 	$(CC) $(CFLAG) -c s21_test.c -o test1.o
 	$(CC) test1.o s21_calc.a -lcheck -o test2.o
 	./test2.o

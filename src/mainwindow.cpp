@@ -154,6 +154,10 @@ void MainWindow::on_pushButton_DELETE_SYMBOL_clicked() {
       i += 3;
       str[l - 4] == 'a' ? i += 1 : 0;
     }
+  } else if (strcmp(str, "nan") == 0 || strcmp(str, "inf") == 0) {
+    i += 2;
+  } else if (strcmp(str, "Invalid Input") == 0) {
+    i += 12;
   }
   while (i > 0) {
     new_label.remove(-1, 1);
